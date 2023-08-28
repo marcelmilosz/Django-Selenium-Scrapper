@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title> Allegro Scrapper 2023 </title>
+
+    {% load sass_tags %}
+    <link href="{% sass_src 'globals.scss' %}" rel="stylesheet" type="text/css" />
+    <link href="{% sass_src 'main.scss' %}" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div class="action-bar-container"> 
+        <h1 class="app-title"> Produkty Allegro </h1>
+
+        <form action="/run-scraper/" method="get" id="search-product-form">
+            <input class="normalInput" type="text" name="ean" placeholder="Podaj EAN">
+            
+            <button class="normalBtn" type="submit">Wyszukaj</button>
+        </form>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+            <thead>
+                <tr> 
+                    <th> Zdjęcie </th>
+                    <th> Ean </th>
+                    <th> Akcja </th>
+                    <th> Data aktualizacji </th>
+                    <th> Link do ofert </th>
+                    <th> Link najlepsza oferta </th>
+                    <th> Ilość ofert </th>
+                    <th> Tytuł </th>
+                    <th> Ile Kupiono </th>
+                    <th> Najlepsza cena </th>
+                    <th> Najnizsza cena </th>
+                    <th> Średnia cena </th>
+                    <th> Najlepszy opis </th>
+                    <th> Parametry </th>
+                    <th> Kategoria Allegro </th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td> 
+                        {% if product.first_photo_link%}
+                            <img src={{product.first_photo_link}}> 
+                        {% else %}
+                            <img src="   https://cdn-icons-png.flaticon.com/512/10701/10701484.png "> 
+
+                        {% endif %}
+                    </td>
+                    <td> {{ product.product_or_ean }} </td>
+                    <td> <button class="btnDelete" onclick="delete_product({{ product.id|safe }})">Usuń</button> </td>
+                    <td> {{ product.date_added|date:"d.m.Y" }} </td>
+                    <td> <a target="_blank" href={{product.offer_link}}> Link oferty </a> </td>
+                    <td> <a target="_blank" href={{product.best_offer_link}}> Link </a> </td>
+                    <td class="text-center"> {{ product.how_many_offers}} </td>
+                    <td class="product_nowrap"> {{ product.best_title}} </td>
+                    <td class="text-center"> {{ product.max_howManyBought}} </td>
+                    <td class="text-center"> {{ product.best_price}} zł </td>
+                    <td class="text-center"> {{ product.lowest_price}} zł </td>
+                    <td class="text-center"> {{ product.avg_price}} zł </td>
+                    <td class="product_description smallText wide-cell"> {{ product.best_description|slice:":300" }}.. </td>
+                    <td> {{ product.parameters|slice:":50"|linebreaksbr}} </td>
+                    <td class="product_nowrap"> {{ product.product_category}} </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        const form_search = document.querySelector("#search-product-form");
+        form_search.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const eanInput = form_search.querySelector("input[name='ean']").value;
+            window.location.href = `/run-scraper/${eanInput}`;
+        });
+
+    });
+
+    function delete_product(id) {
+        const confirmation = confirm("Are you sure you want to delete this product?");
+        if (confirmation) {
+            fetch(`/delete-product/${id}/`, {
+                method: 'POST',  
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',  
+                    'Content-Type': 'application/json',  
+                },
+            })
+            .then(response => {
+                window.location.reload();  
+            })
+        }
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+.app-title {
+  margin-top: 2rem;
+  margin-bottom: 1rem; }
+
+.normalInput {
+  min-width: 250px;
+  border: 0;
+  background-color: #eee;
+  border-radius: 0px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border: 2px solid #3871cc; }
+
+.normalBtn {
+  border: 0;
+  background-color: #eee;
+  border-radius: 0px;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border: 2px solid #3871cc;
+  cursor: pointer; }
+  .normalBtn:hover {
+    background-color: #FFF; }
+
+.btnDelete {
+  border: 0;
+  background-color: #3871cc;
+  border-radius: 0px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #FFF;
+  cursor: pointer; }
+  .btnDelete:hover {
+    background-color: #EEE;
+    color: #222; }
+
+.smallText {
+  font-size: 0.85rem; }
+
+.product_nowrap {
+  white-space: nowrap; }
+
+.text-center {
+  text-align: center; }
+
+.wide-cell {
+  min-width: 500px;
+  height: 100%;
+  display: inline-block; }
+
+/*# sourceMappingURL=globals.css.map */

@@ -1,0 +1,94 @@
+1693032883533	geckodriver	INFO	Listening on 127.0.0.1:53606
+1693032883822	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jh/kt0ckggj03qdkdmbqtd0yks40000gn/T/rust_mozprofilebTz5sl"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693032884134	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693032884236	Marionette	INFO	Listening on port 53619
+Read port: 53619
+WebDriver BiDi listening on ws://127.0.0.1:53607
+1693032884289	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:53607/devtools/browser/0452fa09-7429-4e56-820e-3a03d739fb3b
+JavaScript warning: https://pagead2.googlesyndication.com/bg/oGWEAOSy2FD_H6yXFafSznTTKo3y8yaW3jsvWQxT1M8.js line 2 > eval line 4571 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914, line 43: Script terminated by timeout at:
+Pa@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:43:281
+h@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:206:1913
+gl/</q</<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:206:2181
+m.nd@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:75:425
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:74:439
+m.m@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:73:223
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:72:859
+yf.prototype.m@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:116:115
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:72:859
+next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:105:352
+m.m@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:73:223
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:72:859
+Kc.prototype.m@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:85:601
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:72:859
+Ee.prototype.m@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:108:248
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:72:859
+m.pa@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:98:367
+Vc.prototype.m@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:87:1378
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:72:859
+Sj/c/</</<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:183:320
+Qa@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:44:339
+Na.prototype.flush@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:44:127
+Pa@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:43:330
+Sj/c/</<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:183:292
+m.nd@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:75:425
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:74:439
+m.m@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:73:223
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:72:859
+Bj/</</</<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:175:362
+zj/<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:174:1013
+Ma.prototype.La/<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:43:162
+Bj/</</<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:175:371
+m.nd@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:75:425
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:74:439
+m.m@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:73:223
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:72:859
+Bj/</</</<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:175:362
+zj/<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:174:1013
+Ma.prototype.La/<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:43:162
+Bj/</</<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:175:371
+m.nd@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:75:425
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:74:439
+m.m@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:73:223
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:72:859
+md/</<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:93:671
+
+1693032889291	Marionette	INFO	Stopped listening on port 53619
+JavaScript warning: https://assets.allegrostatic.com/showoffer-vendors/3.0.0/vendors.js, line 22: Script terminated by timeout at:
+Ae@https://assets.allegrostatic.com/showoffer-vendors/3.0.0/vendors.js:22:10817
+On@https://assets.allegrostatic.com/showoffer-vendors/3.0.0/vendors.js:22:30777
+
+1693033044795	geckodriver	INFO	Listening on 127.0.0.1:54029
+1693033044800	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/jh/kt0ckggj03qdkdmbqtd0yks40000gn/T/rust_mozprofileOytrBn"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1693033045057	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1693033045148	Marionette	INFO	Listening on port 54035
+WebDriver BiDi listening on ws://127.0.0.1:54030
+Read port: 54035
+1693033045294	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:54030/devtools/browser/8dcb35e7-ebd1-43e4-87b6-89eb5761a165
+JavaScript warning: https://pagead2.googlesyndication.com/bg/oGWEAOSy2FD_H6yXFafSznTTKo3y8yaW3jsvWQxT1M8.js line 2 > eval line 5180 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914, line 72: Script terminated by timeout at:
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:72:842
+Bj/</</</<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:175:362
+zj/<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:174:1013
+Ma.prototype.La/<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:43:162
+Bj/</</<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:175:371
+m.nd@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:75:425
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:74:439
+m.m@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:73:223
+m.next@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:72:859
+md/</<@https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914:93:671
+
+1693033058722	Marionette	INFO	Stopped listening on port 54035
+JavaScript warning: https://assets.allegrostatic.com/e09d28a6-external/dd-K89D9F6.js, line 2: Script terminated by timeout at:
+[4]</g/this.dd_V/A<@https://assets.allegrostatic.com/e09d28a6-external/dd-K89D9F6.js:2:79484
+

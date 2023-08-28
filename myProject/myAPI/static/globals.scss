@@ -1,0 +1,67 @@
+@import "./colors.scss";
+
+.app-title {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+.normalInput {
+    min-width: 250px;
+    border: 0;
+    background-color: #eee;
+    border-radius: 0px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border: 2px solid $contrast-color;
+}
+
+.normalBtn {
+    border: 0;
+    background-color: #eee;
+    border-radius: 0px;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border: 2px solid $contrast-color;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: #FFF;
+    }
+}
+
+.btnDelete {
+    border: 0;
+    background-color: $contrast-color;
+    border-radius: 0px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #FFF;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: #EEE;
+        color: #222;
+    }
+}
+
+.smallText {
+    font-size: 0.85rem;
+}
+
+.product_nowrap {
+    white-space: nowrap;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.wide-cell {
+    min-width: 500px;
+    height: 100%;
+    display:inline-block;
+}
+    
