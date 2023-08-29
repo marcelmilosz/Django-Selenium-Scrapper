@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, run_scrapper,delete_product
+from .views import index, run_scrapper, delete_product
 
 urlpatterns = [
     path('', index, name="index-page"),  # Use 'name' parameter instead of the third argument

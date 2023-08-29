@@ -11,12 +11,12 @@
 </head>
 <body>
     <div class="action-bar-container"> 
-        <h1 class="app-title"> Produkty Allegro </h1>
+        <h1 class="app-title"> Allegro Scrapper </h1>
 
         <form action="/run-scraper/" method="get" id="search-product-form">
-            <input class="normalInput" type="text" name="ean" placeholder="Podaj EAN">
+            <input class="normalInput" type="text" name="ean" placeholder="Product EAN">
             
-            <button class="normalBtn" type="submit">Wyszukaj</button>
+            <button class="normalBtn" type="submit">Wyszukaj / Search </button>
         </form>
 
     </div>
@@ -82,7 +82,7 @@
                     <td> <a target="_blank" href={{product.best_offer_link}}> Link </a> </td>
                     <td class="text-center"> {{ product.how_many_offers}} </td>
 
-                    <td class="text-center"> {{ product.best_offer_owner}} </td>
+                    <td class="text-center product_nowrap"> {{ product.best_offer_owner}} </td>
                     <td class="text-center"> {{ product.best_offer_delivery_costs}} </td>
                     <td class="text-center"> {{ product.product_rating}} </td>
                     <td class="text-center"> {{ product.product_opinions}} </td>
@@ -133,6 +133,8 @@
 </body>
 
 <script>
+
+    // This runs after we click search / wyszukaj button 
     document.addEventListener("DOMContentLoaded", function() {
 
         const form_search = document.querySelector("#search-product-form");
@@ -160,6 +162,7 @@
         }
     }
 
+    // this copies whatever you put as a argument 
     function copyToClipboard(text) {
         const textarea = document.createElement('textarea');
         textarea.value = text;
