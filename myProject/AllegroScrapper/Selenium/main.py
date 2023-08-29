@@ -103,7 +103,7 @@ class SingleProductScrapper:
         print(f"User Agent: ", self.usedUserAgend)
 
 
-        self.driver.get(self.baseUrl) # (100%)
+        self.driver.get(self.baseUrl)
 
         # Click Cookies
 
@@ -112,7 +112,7 @@ class SingleProductScrapper:
         time.sleep(self.generate_random_float(1, 2))
 
         # Search for input bar and type ean 
-        time.sleep(self.generate_random_float(2.5, 5)) #(100%)
+        time.sleep(self.generate_random_float(2.5, 5))
         self.driver_click_and_type_text_element_by_XPATH("input", "class", "m7er_k4 mgn2_14 mp0t_0a m0qj_5r m9tr_5r mli8_k4 mx7m_1 m911_co mnyp_co mdwl_co mlkp_6x mefy_5r mm2b_0 mldj_0 mtag_2 msbw_2 msts_pt mgmw_wo mr3m_1 mli2_1 mh85_0 mjyo_6x mse2_40 mqu1_40 mp4t_0 m3h2_0 mryx_0 munh_0 mvrt_8 mg9e_0 mj7a_0 mh36_0 _535b5_Sviv7", timeout=2, text=self.searched_ean_or_text, info_text="Input bar") 
         time.sleep(self.generate_random_float(1, 2))
 
@@ -125,7 +125,6 @@ class SingleProductScrapper:
             self.linksToOffers = self.driver_find_all_elements_by_XPATH("a", "class", "mgn2_14 mp0t_0a mgmw_wo mj9z_5r mli8_k4 mqen_m6 l1fas l1igl meqh_en mpof_z0 mqu1_16 m6ax_n4 _6a66d_XVsLO  ", return_href = True, info_text="Links")
 
             # Get all offers price
-            # self.offersPrice = self.driver_find_all_elements_by_XPATH("div", "class", "mli8_k4 msa3_z4 mqu1_1 mp0t_ji m9qz_yo mgmw_qw mgn2_27 mgn2_30_s", info_text="Prices")
             self.offersPrice = self.driver_find_all_elements_by_XPATH("div", "class", "msa3_z4 _6a66d_s3ycW", info_text="Prices")
             
             # Sometimes allegro highlights price green so we have to catch that also!
