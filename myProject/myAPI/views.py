@@ -47,7 +47,13 @@ def run_scrapper(request, ean):
                 "parameters": scrapper_data.get("parameters"),
                 "photos_links": scrapper_data.get("photos_links"),
                 "first_photo_link": scrapper_data.get("first_photo_link"),
-                "product_category": scrapper_data.get("product_category")
+                "product_category": scrapper_data.get("product_category"),
+                "product_category_id": scrapper_data.get("product_category_id"),
+                "howManyBought": scrapper_data.get("howManyBought"),
+                "best_offer_owner": scrapper_data.get("best_offer_owner"),
+                "best_offer_delivery_costs": scrapper_data.get("best_offer_delivery_costs"),
+                "product_rating": scrapper_data.get("product_rating"),
+                "product_opinions": scrapper_data.get("product_opinions"),
             }
         )
 
@@ -67,10 +73,20 @@ def run_scrapper(request, ean):
             product_instance.photos_links = scrapper_data.get("photos_links")
             product_instance.first_photo_link = scrapper_data.get("first_photo_link")
             product_instance.product_category = scrapper_data.get("product_category")
+            product_instance.product_category_id = scrapper_data.get("product_category_id")
+            product_instance.howManyBought = scrapper_data.get("howManyBought")
+            product_instance.best_offer_owner = scrapper_data.get("best_offer_owner")
+            product_instance.best_offer_delivery_costs = scrapper_data.get("best_offer_delivery_costs")
+            product_instance.product_rating = scrapper_data.get("product_rating")
+            product_instance.product_opinions = scrapper_data.get("product_opinions")
             product_instance.save()
 
+        print("Product added correctly")
         return redirect("/?succes=1")
     
     except Exception as e:
+
+        print("Something went wrong!")
+        print(e)
 
         return redirect("/?succes=0")

@@ -94,52 +94,59 @@ class SingleProductScrapper:
     # Run this to start
     def start(self):
         
-        # Open page 
-        self.driver_init(run_undetected=True) 
+        # Open page (100%)
+        self.driver_init(run_undetected=True)  # Here you can specify what driver to use 
 
         print("\nDriver inited")
         print(f"Starting URL: \n{self.startingUrl}")
         print(f"Searched Ean or text: {self.searched_ean_or_text}")
         print(f"User Agent: ", self.usedUserAgend)
 
-        self.driver.get(self.baseUrl)
+
+        self.driver.get(self.baseUrl) # (100%)
 
         # Click Cookies
 
         time.sleep(self.generate_random_float(2.5, 5))
-        self.driver_click_element_by_XPATH("button", "data-testid", "accept_home_view_action", timeout=2) 
+        self.driver_click_element_by_XPATH("button", "data-testid", "accept_home_view_action", timeout=2, info_text="Cookies") #(100%)
         time.sleep(self.generate_random_float(1, 2))
 
         # Search for input bar and type ean 
-        time.sleep(self.generate_random_float(2.5, 5))
-        self.driver_click_and_type_text_element_by_XPATH("input", "class", "m7er_k4 mgn2_14 mp0t_0a m0qj_5r m9tr_5r mli8_k4 mx7m_1 m911_co mnyp_co mdwl_co mlkp_6x mefy_5r mm2b_0 mldj_0 mtag_2 msbw_2 msts_pt mgmw_wo mr3m_1 mli2_1 mh85_0 mjyo_6x mse2_40 mqu1_40 mp4t_0 m3h2_0 mryx_0 munh_0 mvrt_8 mg9e_0 mj7a_0 mh36_0 _535b5_Sviv7", timeout=2, text=self.searched_ean_or_text) 
+        time.sleep(self.generate_random_float(2.5, 5)) #(100%)
+        self.driver_click_and_type_text_element_by_XPATH("input", "class", "m7er_k4 mgn2_14 mp0t_0a m0qj_5r m9tr_5r mli8_k4 mx7m_1 m911_co mnyp_co mdwl_co mlkp_6x mefy_5r mm2b_0 mldj_0 mtag_2 msbw_2 msts_pt mgmw_wo mr3m_1 mli2_1 mh85_0 mjyo_6x mse2_40 mqu1_40 mp4t_0 m3h2_0 mryx_0 munh_0 mvrt_8 mg9e_0 mj7a_0 mh36_0 _535b5_Sviv7", timeout=2, text=self.searched_ean_or_text, info_text="Input bar") 
         time.sleep(self.generate_random_float(1, 2))
 
         # Get all offers Title 
-        self.offersTitle = self.driver_find_all_elements_by_XPATH("a", "class", "mgn2_14 mp0t_0a mgmw_wo mj9z_5r mli8_k4 mqen_m6 l1fas l1igl meqh_en mpof_z0 mqu1_16 m6ax_n4 _6a66d_XVsLO  ")
+        # self.offersTitle = self.driver_find_all_elements_by_XPATH("a", "class", "mgn2_14 mp0t_0a mgmw_wo mj9z_5r mli8_k4 mqen_m6 l1fas l1igl meqh_en mpof_z0 mqu1_16 m6ax_n4 _6a66d_XVsLO  ", info_text="Titles")
+        self.offersTitle = self.driver_find_all_elements_by_XPATH("h2", "class", "mgn2_14 m9qz_yp meqh_en mpof_z0 mqu1_16 m6ax_n4 mp4t_0 m3h2_0 mryx_0 munh_0 mj7a_4", info_text="Titles")
 
         if len(self.offersTitle) > 0:
 
-            self.linksToOffers = self.driver_find_all_elements_by_XPATH("a", "class", "mgn2_14 mp0t_0a mgmw_wo mj9z_5r mli8_k4 mqen_m6 l1fas l1igl meqh_en mpof_z0 mqu1_16 m6ax_n4 _6a66d_XVsLO  ", return_href = True)
+            self.linksToOffers = self.driver_find_all_elements_by_XPATH("a", "class", "mgn2_14 mp0t_0a mgmw_wo mj9z_5r mli8_k4 mqen_m6 l1fas l1igl meqh_en mpof_z0 mqu1_16 m6ax_n4 _6a66d_XVsLO  ", return_href = True, info_text="Links")
 
             # Get all offers price
-            self.offersPrice = self.driver_find_all_elements_by_XPATH("div", "class", "mli8_k4 msa3_z4 mqu1_1 mp0t_ji m9qz_yo mgmw_qw mgn2_27 mgn2_30_s")
+            # self.offersPrice = self.driver_find_all_elements_by_XPATH("div", "class", "mli8_k4 msa3_z4 mqu1_1 mp0t_ji m9qz_yo mgmw_qw mgn2_27 mgn2_30_s", info_text="Prices")
+            self.offersPrice = self.driver_find_all_elements_by_XPATH("div", "class", "msa3_z4 _6a66d_s3ycW", info_text="Prices")
+            
+            # Sometimes allegro highlights price green so we have to catch that also!
+            # if len(self.offersPrice) != len(self.offersTitle):
+            #     self.offersPriceHighlighted = self.driver_find_all_elements_by_XPATH("div", "class", "mli8_k4 msa3_z4 mqu1_1 mp0t_ji m9qz_yo mgn2_27 mgn2_30_s mgmw_g5", info_text="Prices Highlighted green") 
+            #     self.offersPrice = self.offersPrice.concat(self.offersPriceHighlighted)
 
             # Get all containers that hold (and may not hold) information about how many offers in this category was bought
-            self.offersBought = self.driver_find_all_elements_by_XPATH("div", "class", "mpof_ki m389_a6 munh_56_l mj7a_4")
+            self.offersBought = self.driver_find_all_elements_by_XPATH("div", "class", "mpof_ki m389_a6 munh_56_l mj7a_4", info_text="Offers bought")
 
             # Get if offer is sponsored 
-            self.isOfferSponsored = self.driver_find_all_elements_by_XPATH("div", "class", "mj7a_4 m3h2_56")
+            self.isOfferSponsored = self.driver_find_all_elements_by_XPATH("div", "class", "mj7a_4 m3h2_56", info_text="Offers sponsored")
 
             # Analyze data and print data in console
             try:
                 self.analyze_data()
-                self.generate_random_float(0.5, 3)
             except Exception as e:
                 print("Something went wrong with analyze_data")
-                print("Error message: ", e.message)
+                print("Error message: ", e)
 
-            # self.driver.quit()
+            self.driver.quit()
 
             return self.singleProductAnalyzed
         
@@ -165,18 +172,18 @@ class SingleProductScrapper:
         # we also randomize scroll
         sum = 0 
         for i in range(0, 8):
-            sum += self.generate_random_number(100, 400)
+            sum += self.generate_random_number(100, 700)
             self.driver.execute_script(f"window.scrollTo(0, {sum});")
             time.sleep(0.5)
     
     # Clicks any element on page. Waits for it for @timeout time in seconds
-    def driver_click_element_by_XPATH(self, element, attr, attrVal, timeout = 5): 
+    def driver_click_element_by_XPATH(self, element, attr, attrVal, timeout = 5, info_text=""): 
 
         element_to_click = f"element: {element} | attribute: {attr} | attributeValue: {attrVal}"
 
         try:
             print(f"\nTrying to click element: {element_to_click}\n")
-            print(f"Timeout: {timeout} seconds")
+            print(f"Timeout: {timeout} seconds | info_text: {info_text}")
 
             element_locator = (By.XPATH, f'//{element}[@{attr}="{attrVal}"]')
             WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(element_locator))
@@ -187,13 +194,13 @@ class SingleProductScrapper:
             print(f"\nCouldn't click on element: {element_to_click}")
             print("Error message: ", str(e))
 
-    def driver_click_and_type_text_element_by_XPATH(self, element, attr, attrVal, timeout = 5, text = ""): 
+    def driver_click_and_type_text_element_by_XPATH(self, element, attr, attrVal, timeout = 5, text = "", info_text=""): 
 
         element_to_click = f"element: {element} | attribute: {attr} | attributeValue: {attrVal}"
 
         try:
             print(f"\nTrying to click element: {element_to_click}\n")
-            print(f"Timeout: {timeout} seconds")
+            print(f"Timeout: {timeout} seconds | info_text: {info_text}")
 
             element_locator = (By.XPATH, f'//{element}[@{attr}="{attrVal}"]')
             WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(element_locator))
@@ -215,12 +222,12 @@ class SingleProductScrapper:
 
     # Find, display and save all elements by XPATH
     # Returns array of elements (text)
-    def driver_find_all_elements_by_XPATH(self, element, attr, attrVal, timeout = 5, return_href = False, return_src = False):
+    def driver_find_all_elements_by_XPATH(self, element, attr, attrVal, timeout = 5, return_href = False, return_src = False, info_text = ""):
         elements_to_find = f"element: {element} | attribute: {attr} | attributeValue: {attrVal}"
 
         try:
             print(f"\nTrying to find elements: {elements_to_find}\n")
-            print(f"Timeout: {timeout} seconds")
+            print(f"Timeout: {timeout} seconds | info_text: {info_text}")
 
             element_locator = (By.XPATH, f'//{element}[@{attr}="{attrVal}"]')
             WebDriverWait(self.driver, timeout).until(EC.presence_of_all_elements_located(element_locator))
@@ -273,8 +280,23 @@ class SingleProductScrapper:
 
         return arr
 
+    def get_category_id_from_url(self, url):
+        try:
+            # Split URL by '/' and get the last element
+            last_part = url.split('/')[-1]
+            
+            # Split the last part by '-' and get the last element
+            category_id = last_part.split('-')[-1]
+
+            return category_id
+        except Exception as e: 
+            return ""
+        
+        
+
     def analyze_data(self):
 
+        
         if (len(self.offersTitle) > 0):
 
             ## Data from global offers (where we have them all splitted)
@@ -290,17 +312,26 @@ class SingleProductScrapper:
             bestOffer_link = self.linksToOffers[highestBoughtIndex]
             
             bestTitle = self.offersTitle[highestBoughtIndex]
+
             bestPrice = float(self.offersPrice[highestBoughtIndex].replace(",", ".").replace(" zł", ""))
+            
 
             ## Data from single offer (mainly this best one)
             self.driver_move_to_url(bestOffer_link)
             self.driver_scroll_to_bottom() # This helps with images loading when we scroll into view!
 
-            bestOffer_description = self.driver_find_all_elements_by_XPATH("div", "class", "mgn2_14 mp0t_0a mqu1_21 mli8_k4 mgmw_wo msts_pt _0d3bd_K6Qpj")
-            bestOffer_parameters = self.driver_find_all_elements_by_XPATH("table", "class", "myre_zn mp7g_oh m7er_k4 q2unx mp0t_0a msts_pt")
-            bestOffer_img_link = self.driver_find_all_elements_by_XPATH("img", "class", "msub_k4 mupj_5k mjru_k4 mse2_k4 mp7g_f6 mq1m_0 mj7u_0 m7er_k4 lazyloaded", return_src = True)
+            bestOffer_owner = self.driver_find_all_elements_by_XPATH("div", "class", "mp0t_ji m9qz_yq mgn2_16 mgn2_17_s munh_0 m3h2_0 mp4t_0 mryx_8 mqu1_1j mgmw_wo ", info_text="Owner")
+            bestOffer_description = self.driver_find_all_elements_by_XPATH("div", "class", "mgn2_14 mp0t_0a mqu1_21 mli8_k4 mgmw_wo msts_pt _0d3bd_K6Qpj", info_text="Description")
+            bestOffer_parameters = self.driver_find_all_elements_by_XPATH("table", "class", "myre_zn mp7g_oh m7er_k4 q2unx mp0t_0a msts_pt", info_text="Parameters")
+            bestOffer_img_link = self.driver_find_all_elements_by_XPATH("img", "class", "msub_k4 mupj_5k mjru_k4 mse2_k4 mp7g_f6 mq1m_0 mj7u_0 m7er_k4 lazyloaded", return_src = True, info_text="Images link")
 
-            bestOffer_category = self.driver_find_all_elements_by_XPATH("ol", "class", "mg9e_0 mvrt_0 mj7a_0 mh36_0 mp4t_0 m3h2_0 mryx_0 munh_0 mv5s_z3 mr0s_56 bceg6w mzmg_7i msa3_z4")
+            bestOffer_category = self.driver_find_all_elements_by_XPATH("ol", "class", "mg9e_0 mvrt_0 mj7a_0 mh36_0 mp4t_0 m3h2_0 mryx_0 munh_0 mv5s_z3 mr0s_56 bceg6w mzmg_7i msa3_z4", info_text="Category")
+            bestOffer_delivery_costs = self.driver_find_all_elements_by_XPATH("div", "class", "mp0t_0a mqu1_21 mli8_k4 msa3_z4 mgn2_16 mgmw_qh mpof_uk", info_text="Delivery costs")
+
+            product_rating = self.driver_find_all_elements_by_XPATH("span", "data-testid", "aggregateRatingValue", info_text="Product rating")
+            product_opinions = self.driver_find_all_elements_by_XPATH("a", "class", "mgn2_14 mp0t_0a mgmw_wo mqu1_21 mj9z_5r mli8_k4 mqen_m6 l1fas munh_4", info_text="product opinions")
+
+            offer_category_id = self.get_category_id_from_url(str(self.driver.current_url))
 
             ## Display data for user
             print("\nAnaliza.. ")
@@ -310,6 +341,7 @@ class SingleProductScrapper:
             print(f"Ilość ofert: {len(self.offersTitle)}")
             print(f"\nNajlepszy tytuł: {bestTitle}")
             print(f"Najwięcej kupionych: {max_howManyBought} szt. za cenę {bestPrice}")
+            print(f"Ile kupiono łącznie: {sum(offersBoughtFormatted)}")
             print(f"Kupionych łącznie: {howManyBought} szt.")
             print(f"Najnizsza cena: {lowest_price} zł")
             print(f"Najwyzsza cena: {highest_price} zł")
@@ -324,6 +356,16 @@ class SingleProductScrapper:
             print(f"{bestOffer_img_link}")
             print(f"\nKategoria: ")
             print(f"{bestOffer_category}")
+            print(f"\nId kategori: ")
+            print(f"{offer_category_id}")
+            print(f"\nWystawiający: ")
+            print(f"{bestOffer_owner}")
+            print(f"\nDostawa: ")
+            print(f"{bestOffer_delivery_costs}")
+            print(f"\nOcena: ")
+            print(f"{product_rating}")
+            print(f"\nOpinie: ")
+            print(f"{product_opinions}")
             print(f"")
 
             print("===" * 30)
@@ -333,6 +375,9 @@ class SingleProductScrapper:
             if bestOffer_img_link:
                 preview_link = bestOffer_img_link[0]
 
+            if (not bestTitle or bestTitle == "") and len(self.offersTitle) > 0:
+                bestTitle = self.offersTitle[0]
+
             ## Add data for final return 
             self.singleProductAnalyzed = {
                 "product_or_ean": self.searched_ean_or_text,
@@ -340,6 +385,7 @@ class SingleProductScrapper:
                 "offer_link": self.startingUrl,
                 "best_title": bestTitle,
                 "max_howManyBought": max_howManyBought,
+                "howManyBought": sum(offersBoughtFormatted),
                 "best_price": bestPrice,
                 "lowest_price": lowest_price,
                 "highest_price": highest_price,
@@ -353,6 +399,12 @@ class SingleProductScrapper:
                 self.singleProductAnalyzed["best_description"] = bestOffer_description[0]
                 self.singleProductAnalyzed["parameters"] = bestOffer_parameters[0]
                 self.singleProductAnalyzed["product_category"] = bestOffer_category[0].replace("\n", " - ")
+                self.singleProductAnalyzed["product_category_id"] = offer_category_id
+        
+            if len(bestOffer_owner) > 0: self.singleProductAnalyzed['best_offer_owner'] = bestOffer_owner[0]
+            if len(bestOffer_delivery_costs) > 0: self.singleProductAnalyzed['best_offer_delivery_costs'] = bestOffer_delivery_costs[0]
+            if len(product_rating) > 0: self.singleProductAnalyzed['product_rating'] = product_rating[0]
+            if len(product_opinions) > 0: self.singleProductAnalyzed['product_opinions'] = product_opinions[0]
 
             
 

@@ -72,7 +72,7 @@ body, html {
         tbody {
 
             tr {
-                border-bottom: 1px solid #dddddd;
+                border-bottom: 1px solid #ddd;
 
                 &:nth-child(even) {
                     background-color: #f3f3f3;
@@ -83,19 +83,16 @@ body, html {
                 }
 
                 &:hover {
-                    background-color: $contrast-color-light
+                    background-color: $contrast-color-light-transparent;
                 }
             }
 
             td {
-                padding: 12px 15px;
+                padding: 4px 12px;
+                font-size: 0.9rem;
 
-                font-size: 1rem;
+                border-left: 1px solid #ddd;
 
-                &:hover {
-                    color: $contrast-color;
-                    cursor: pointer;
-                }
             }
 
             img {
@@ -104,10 +101,6 @@ body, html {
 
                 display: block;
                 margin: 0 auto;
-            }
-
-            .product_description {
-                max-width: 50px;
             }
         }
     }

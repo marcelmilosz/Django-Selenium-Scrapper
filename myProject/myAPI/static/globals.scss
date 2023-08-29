@@ -42,8 +42,20 @@
     cursor: pointer;
 
     &:hover {
-        background-color: #EEE;
-        color: #222;
+        background-color: $contrast-color-light;
+    }
+}
+
+.copy-text {
+    color: $contrast-color;
+    margin-top: 0.25rem;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    &:hover {
+        color: $contrast-color-light;
     }
 }
 
@@ -60,8 +72,12 @@
 }
 
 .wide-cell {
-    min-width: 500px;
+    min-width: 400px;
     height: 100%;
     display:inline-block;
+}
+
+.element_clickable {
+    cursor: pointer;
 }
     

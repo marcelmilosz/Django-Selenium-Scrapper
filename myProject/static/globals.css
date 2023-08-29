@@ -31,8 +31,15 @@
   color: #FFF;
   cursor: pointer; }
   .btnDelete:hover {
-    background-color: #EEE;
-    color: #222; }
+    background-color: #5f99f6; }
+
+.copy-text {
+  color: #3871cc;
+  margin-top: 0.25rem;
+  cursor: pointer;
+  text-align: left; }
+  .copy-text:hover {
+    color: #5f99f6; }
 
 .smallText {
   font-size: 0.85rem; }
@@ -44,8 +51,11 @@
   text-align: center; }
 
 .wide-cell {
-  min-width: 500px;
+  min-width: 400px;
   height: 100%;
   display: inline-block; }
+
+.element_clickable {
+  cursor: pointer; }
 
 /*# sourceMappingURL=globals.css.map */

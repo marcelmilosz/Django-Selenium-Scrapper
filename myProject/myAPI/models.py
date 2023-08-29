@@ -6,7 +6,7 @@ class Product(models.Model):
     product_or_ean = models.CharField(max_length=200)  # Allow an empty value in forms
     how_many_offers = models.IntegerField(blank=True, null=True)  # Allow an empty value in forms and NULL in the database
     offer_link = models.TextField(blank=True, null=True)  # Allow an empty value in forms and NULL in the database
-    best_title = models.TextField(blank=True)
+    best_title = models.TextField(blank=True, null=True)
     max_howManyBought = models.IntegerField(blank=True, null=True)
     best_price = models.FloatField(blank=True, null=True)
     lowest_price = models.FloatField(blank=True, null=True)
@@ -18,7 +18,14 @@ class Product(models.Model):
     photos_links = models.TextField(blank=True, null=True)
     first_photo_link = models.TextField(blank=True, null=True)
     product_category = models.TextField(blank=True, null=True)
+    product_category_id = models.TextField(blank=True, null=True)
+    howManyBought = models.IntegerField(blank=True, null=True)
     date_added = models.DateField(default=datetime.now)
+
+    best_offer_owner = models.CharField(blank=True, null=True, max_length=200)
+    best_offer_delivery_costs = models.CharField(blank=True, null=True, max_length=200)
+    product_rating = models.CharField(blank=True, null=True, max_length=200)
+    product_opinions = models.CharField(blank=True, null=True, max_length=200)
 
     def __str__(self):
         return str(self.id) + ". " + self.product_or_ean  + " " + self.best_title

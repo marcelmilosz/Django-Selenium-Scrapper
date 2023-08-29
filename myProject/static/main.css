@@ -41,7 +41,7 @@ body, html {
       color: #ffffff;
       text-align: left; }
     .table-container table tbody tr {
-      border-bottom: 1px solid #dddddd; }
+      border-bottom: 1px solid #ddd; }
       .table-container table tbody tr:nth-child(even) {
         background-color: #f3f3f3; }
       .table-container table tbody tr:last-of-type {
@@ -49,17 +49,13 @@ body, html {
       .table-container table tbody tr:hover {
         background-color: rgba(56, 113, 204, 0.1); }
     .table-container table tbody td {
-      padding: 12px 15px;
-      font-size: 1rem; }
-      .table-container table tbody td:hover {
-        color: #3871cc;
-        cursor: pointer; }
+      padding: 4px 12px;
+      font-size: 0.9rem;
+      border-left: 1px solid #ddd; }
     .table-container table tbody img {
       max-width: 75px;
       max-height: 75px;
       display: block;
       margin: 0 auto; }
-    .table-container table tbody .product_description {
-      max-width: 50px; }
 
 /*# sourceMappingURL=main.css.map */
