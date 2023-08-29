@@ -45,4 +45,9 @@ You can create your own superuser with the command **python manage.py createsupe
 - Ensure that you have the correct version of `chromedriver.exe` for your browser.
 - If data gathering encounters issues, check the console and ensure that Selenium is targeting the proper classes.
 
+## How it looks 
+![img](https://github.com/marcelmilosz/Django-Selenium-Scrapper/assets/61027817/32e7e91a-4864-4dac-ad24-06f89091f975)
+
+This data table is going a bit long in horizontal axis.. </br> </br>
+
 Happy Hacking! 🕵🏻
